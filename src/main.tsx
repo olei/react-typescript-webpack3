@@ -8,7 +8,7 @@ class Root extends React.Component {
   render () {
     return (
       <div className="green">
-        jzb-react-cli
+        jzb-react-cli test2
       </div>
     )
   }

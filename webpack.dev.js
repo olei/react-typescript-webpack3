@@ -9,7 +9,6 @@ const WebpackNotifierPlugin = require('webpack-notifier')
 
 // webpack dev server 配置
 const WebpackDevServer = require('webpack-dev-server')
-const errorOverlayMiddleware = require('react-error-overlay/middleware')
 // 粉笔
 const chalk = require('chalk')
 
@@ -56,38 +55,26 @@ const config = merge(webpackConfig, {
   ]
 })
 
-const st = webpack(config, function (err, stats) {
-  if (err) throw err
-  process.stdout.write(stats.toString({
-    colors: true,
-    modules: false,
-    children: false,
-    chunks: false,
-    chunkModules: false
-  }) + '\n')
-})
-
-new WebpackDevServer(st, {
+new WebpackDevServer(webpack(config), {
     hot: true,
     compress: true,
     historyApiFallback: true,
     publicPath: '/',
     watchOptions: {
-        ignored: /node_modules/,
+      ignored: /node_modules/,
     },
     stats: {
         modules: false,
         chunks: false
     },
     setup (app) {
-        app.use(errorOverlayMiddleware())
-        if (process.env.NODE_ENV !== 'production') {
-            app.use('/activity', proxyMiddleware(proxyTable))
-        }
+      if (process.env.NODE_ENV !== 'production') {
+        app.use('/activity', proxyMiddleware(proxyTable))
+      }
     }
 }).listen(serverConfig.port, serverConfig.host, function (err, result) {
-    if (err) {
-        return console.log(err)
-    }
-    console.log(`Listening at http://${serverConfig.host}:${serverConfig.port}/`)
+  if (err) {
+    return console.log(err)
+  }
+  console.log(`Listening at http://${serverConfig.host}:${serverConfig.port}/`)
 })
