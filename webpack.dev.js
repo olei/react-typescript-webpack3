@@ -9,19 +9,16 @@ const WebpackNotifierPlugin = require('webpack-notifier')
 
 // webpack dev server 配置
 const WebpackDevServer = require('webpack-dev-server')
-// const errorOverlayMiddleware = require('react-error-overlay')
-
+const errorOverlayMiddleware = require('react-error-overlay/middleware')
 // 粉笔
 const chalk = require('chalk')
 
 // 服务配置
 const proxyTable = {
-  '/activity': {
-    target: 'https://bbs-dev.jzb.com',
-    changeOrigin: true,
-    pathRewrite: {
-      '^/activity': '/activity'
-    }
+  target: 'https://bbs-dev.jzb.com',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/activity': '/activity'
   }
 }
 const serverConfig = {
@@ -68,7 +65,6 @@ const st = webpack(config, function (err, stats) {
     chunks: false,
     chunkModules: false
   }) + '\n')
-  console.log(chalk.green.bold('build finish!'))
 })
 
 new WebpackDevServer(st, {
@@ -82,16 +78,13 @@ new WebpackDevServer(st, {
     stats: {
         modules: false,
         chunks: false
+    },
+    setup (app) {
+        app.use(errorOverlayMiddleware())
+        if (process.env.NODE_ENV !== 'production') {
+            app.use('/activity', proxyMiddleware(proxyTable))
+        }
     }
-    // setup (app) {
-    //     app.use(errorOverlayMiddleware())
-    //     if (process.env.NODE_ENV !== 'production') {
-    //         app.use('/book/*', proxy({
-    //             target: 'https://www.easy-mock.com/mock/593611b991470c0ac101d474',
-    //             secure: false
-    //         }))
-    //     }
-    // }
 }).listen(serverConfig.port, serverConfig.host, function (err, result) {
     if (err) {
         return console.log(err)
