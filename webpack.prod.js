@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const merge = require('webpack-merge')
+const webpackConfig = require('./webpack.config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 粉笔
@@ -32,7 +33,6 @@ console.log(
 const spinner = ora('正在构建项目...')
 spinner.start()
 
-const webpackConfig = require('./webpack.config')
 const config = merge(webpackConfig, {
   output: {
     path: path.resolve(__dirname, './dist'),
