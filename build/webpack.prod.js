@@ -35,11 +35,17 @@ spinner.start()
 
 const config = merge(webpackConfig, {
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].[chunkhash].js',
     chunkFilename: 'js/[name].[chunkhash].js'
   },
   plugins: [
+    new webpack.DefinePlugin({
+      // 定义全局变量
+      'process.env':{
+          'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      }
+    }),
     // css文件生成
     new ExtractTextPlugin(assetsPath('css/[name].[contenthash].css')),
     // 模板文件生成
@@ -74,7 +80,7 @@ const config = merge(webpackConfig, {
         test: /\.(less|css)$/,
         use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ["css-loader", "less-loader"]
+                use: ["css-loader", "less-loader", "postcss-loader"]
             })
       }
     ]

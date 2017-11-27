@@ -21,7 +21,7 @@ module.exports = {
           module.resource &&
           /\.js$/.test(module.resource) &&
           module.resource.indexOf(
-            path.join(__dirname, './node_modules')
+            path.join(__dirname, '../node_modules')
           ) === 0
         )
       }
@@ -29,36 +29,31 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
-    new webpack.DefinePlugin({
-      // 定义全局变量
-      'process.env':{
-          'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-      }
     })
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
-      'COMPONENTS': path.resolve(__dirname, './src/components')
+      'COMPONENTS': path.resolve(__dirname, '../src/components')
     }
   },
   module: {
     rules: [
       {
-        test: /\.(tsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: 'ts-loader'
       },
+      // {
+      //   test: /\.ts$/,
+      //   enforce: 'pre',
+      //   loader: 'tslint-loader',
+      //   options: { /* Loader options go here */ }
+      // },
       {
         enforce: 'pre',
-        test: /\.(js|ts)$/,
-        loader: "source-map-loader"
-      },
-      {
-        enforce: 'pre',
-        test: /\.tsx?$/,
-        use: "source-map-loader"
+        test: /\.(ts|tsx)?$/,
+        loader: ['source-map-loader', 'tslint-loader']
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,

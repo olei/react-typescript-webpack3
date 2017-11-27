@@ -2,16 +2,17 @@
   "compilerOptions": {
     "module": "es6",
     "target": "es5",
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "experimentalDecorators": true,
+    "outDir": "ts-build",
     "jsx": "react"
   },
-  "include": [
-    "src/**/*"
-  ],
   "exclude": [
     "node_modules"
   ]

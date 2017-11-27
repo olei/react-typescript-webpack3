@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "autoprefixer": "registry:dt/autoprefixer#6.7.0+20170321201455"
+  },
+  "globalDependencies": {
+    "fastclick": "registry:dt/fastclick#1.0.3+20160510002910"
+  }
+}
