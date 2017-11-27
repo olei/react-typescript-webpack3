@@ -14,8 +14,9 @@
     "no-consecutive-blank-lines": [true, 1], // 空白行限制
     "no-irregular-whitespace": true,
     "no-trailing-whitespace": [true, "ignore-comments"], // 禁止行末尾空白符
-    "ordered-imports": true, // import 引用按字母先后顺序
+    // "ordered-imports": true, // import 引用按字母先后顺序
     "prefer-template": true, // 使用模板字符串拼接
+    "import-spacing": true, // 导入语间距
     // "semicolon": [true, "always"], // 强制分号
     "whitespace": [true, "check-branch", "check-decl", "check-module", "check-type", "check-operator", "check-preblock", "check-typecast", "check-type-operator", "check-rest-spread", "check-separator"], // 强制空格
     "indent": [true, "spaces", 2] // 空格符强制缩进
