@@ -44,7 +44,7 @@ app.use(express.static(__dirname + config.output.publicPath))
 const server = http.createServer(app)
 server.listen(port, 'localhost', function(err) {
   if (err) throw err
-  // server.keepAliveTimeout = 0 //node版本号低于8.1.1  由于超时，节点正在杀死请求。通过设置keepalivetimeout解决超时热更新失效
+  // server.keepAliveTimeout = 0 //node版本号低于8.1.1  由于超时，node kill掉请求。通过设置keepalivetimeout解决超时热更新失效
   const addr = server.address()
   console.log('Listening at http://%s:%d', addr.address, addr.port);
 })
