@@ -1,21 +1,27 @@
 import * as React from "react"
 import * as ReactDOM from 'react-dom'
-import { Toast } from 'antd-mobile'
-import './reset.less'
+import { Provider } from 'react-redux'
+import { Route, Router } from 'react-router-dom'
+// import { createHistory } from 'history'
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory()
+
+import './assets/less/reset.less'
+import './assets/less/index.less'
 
 let attachFastClick = require('fastclick')
 attachFastClick.attach(document.body)
 
-const target = document.getElementById('app')
-
 class Root extends React.Component {
   render () {
     return (
-      <div className="green">
-        jzb-react-cli12345678
+      <div>
+        <Provider store={store}>
+          <div>jzb-react-cli</div>
+        </Provider>
       </div>
     )
   }
 }
 
-ReactDOM.render(<Root/>, target)
+ReactDOM.render(<Root/>, document.getElementById('app'))

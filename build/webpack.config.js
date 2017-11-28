@@ -40,7 +40,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: 'ts-loader'
       },
@@ -52,7 +52,7 @@ module.exports = {
       // },
       {
         enforce: 'pre',
-        test: /\.(ts|tsx)?$/,
+        test: /\.(js|jsx|ts|tsx)?$/,
         loader: ['source-map-loader', 'tslint-loader']
       },
       {
