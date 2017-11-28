@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const express = require('express')
+const http = require('http')
 const proxyMiddleware = require('http-proxy-middleware')
 // 粉笔
 const chalk = require('chalk')
@@ -40,11 +41,10 @@ app.use(hotMiddleware)
 // app.use(staticPath, express.static('./static'))
 app.use(express.static(__dirname + config.output.publicPath))
 
-module.exports = app.listen(port, function (err) {
-  if (err) {
-    console.log(err)
-    return
-  }
-  var uri = 'http://localhost:' + port
-  console.log(chalk.green('Listening at ' + chalk.blue.underline.bold(uri) + '\n'))
+const server = http.createServer(app)
+server.listen(port, 'localhost', function(err) {
+  if (err) throw err
+  // server.keepAliveTimeout = 0 //node版本号低于8.1.1  由于超时，节点正在杀死请求。通过设置keepalivetimeout解决超时热更新失效
+  const addr = server.address()
+  console.log('Listening at http://%s:%d', addr.address, addr.port);
 })

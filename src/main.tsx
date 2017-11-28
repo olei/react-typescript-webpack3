@@ -6,21 +6,13 @@ import './reset.less'
 let attachFastClick = require('fastclick')
 attachFastClick.attach(document.body)
 
-import { aestNum, testObj } from 'COMPONENTS'
-const a = 'a1'
-const b: string = `${a}1`
-console.log(testObj)
-
 const target = document.getElementById('app')
 
 class Root extends React.Component {
-  componentWillMount () {
-    Toast.loading('加载中...', 1)
-  }
   render () {
     return (
       <div className="green">
-        jzb-react-cli test34567
+        jzb-react-cli12345678
       </div>
     )
   }

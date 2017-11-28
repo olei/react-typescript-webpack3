@@ -14,6 +14,9 @@ Object.keys(webpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(webpackConfig, {
+  devServer: {
+    timeout: 100
+  },
   module: {
     rules: [
       {
@@ -23,7 +26,7 @@ module.exports = merge(webpackConfig, {
     ]
   },
   // devtool: 'inline-source-map',
-  devtool: '#eval-source-map',
+  devtool: 'eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: '"development"' },
