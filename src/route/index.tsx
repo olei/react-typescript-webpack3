@@ -1,27 +1,22 @@
 import * as React from 'react'
-// import { ConnectedRouter } from 'react-router-redux'
-
-import { Router } from 'react-router-dom'
+// import { Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 // import Root from './Root'
-const Root: any = require('/Root')
+import * as RoutesModule from './Root'
+let routes = RoutesModule.routes;
 
 export default class App extends React.Component<any, any> {
   constructor (props: any) {
     super(props)
-    console.log(history)
+    console.log(this.props.history)
   }
 
   render() {
-    const {
-      history
-    } = this.props
-
     return (
-      <Router history={history}>
-        <Root />
-      </Router>
+      <div>
+        <BrowserRouter children={ routes } />
+      </div>
     )
   }
-
 }

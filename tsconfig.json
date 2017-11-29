@@ -10,7 +10,6 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "experimentalDecorators": true,
-    "outDir": "ts-build",
     "jsx": "react"
   },
   "exclude": [
