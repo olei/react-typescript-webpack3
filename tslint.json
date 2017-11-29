@@ -1,24 +1,24 @@
 {
   "emitErrors": true,
   "rules": {
-    "no-duplicate-super": true, // super出现多次错误
-    "no-duplicate-variable": true, // 不允许重复的变量声明
-    "no-empty": true, // 不允许空块
-    "no-var-keyword": true, // 禁止使用ver关键字
-    "linebreak-style": [true, "LF"],
-    "arrow-return-shorthand": true, // () => { return x; } to () => x
-    "binary-expression-operand-order": true,
-    "class-name": true,
-    "interface-name": [true, "always-prefix"], // interface命名用大写字母I开头
+    // "no-duplicate-super": true, // super出现多次错误
+    // "no-duplicate-variable": true, // 不允许重复的变量声明
+    // "no-empty": true, // 不允许空块
+    // "no-var-keyword": true, // 禁止使用ver关键字
+    // "linebreak-style": [true, "LF"],
+    // "arrow-return-shorthand": true, // () => { return x; } to () => x
+    // "binary-expression-operand-order": true,
+    // "class-name": true,
+    // "interface-name": [true, "always-prefix"], // interface命名用大写字母I开头
     // "no-boolean-literal-compare": true, // 禁止布尔比较
-    "no-consecutive-blank-lines": [true, 1], // 空白行限制
-    "no-irregular-whitespace": true,
-    "no-trailing-whitespace": [true, "ignore-comments"], // 禁止行末尾空白符
+    // "no-consecutive-blank-lines": [true, 1], // 空白行限制
+    // "no-irregular-whitespace": true,
+    // "no-trailing-whitespace": [true, "ignore-comments"], // 禁止行末尾空白符
     // "ordered-imports": true, // import 引用按字母先后顺序
-    "prefer-template": true, // 使用模板字符串拼接
-    "import-spacing": true, // 导入语间距
+    // "prefer-template": true, // 使用模板字符串拼接
+    // "import-spacing": true, // 导入语间距
     // "semicolon": [true, "always"], // 强制分号
-    "whitespace": [true, "check-branch", "check-decl", "check-module", "check-type", "check-operator", "check-preblock", "check-typecast", "check-type-operator", "check-rest-spread", "check-separator"], // 强制空格
-    "indent": [true, "spaces", 2] // 空格符强制缩进
+    // "whitespace": [true, "check-branch", "check-decl", "check-module", "check-type", "check-operator", "check-preblock", "check-typecast", "check-type-operator", "check-rest-spread", "check-separator"], // 强制空格
+    // "indent": [true, "spaces", 2] // 空格符强制缩进
   }
 }

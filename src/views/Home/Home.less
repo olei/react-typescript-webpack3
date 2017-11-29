@@ -1,0 +1,46 @@
+@searchH: 2.15rem;
+.isLink(@color: #000, @style: none) {
+  color: @color;
+  text-decoration: @style;
+}
+.lh(@v) {
+  height: @v;
+  line-height: @v;
+}
+.br(@v) {
+  border-radius: @v;
+}
+.blue {
+  color: #0a8cdd;
+}
+.listBox {
+  margin: 0;
+  padding: 0;
+  li {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    line-height: .92rem;
+    font-size: .75rem;
+    padding: .95rem .8rem;
+    color: #333;
+    overflow: hidden;
+    span {
+      display: block;
+      color: #009cff;
+      font-size: 1rem;
+      line-height: .95rem;
+      float: left;
+    }
+    p {
+      width: 13rem;
+      float: right;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .no {
+    text-align: center;
+    border: none;
+    line-height: 5rem
+  }
+}

@@ -1,8 +1,10 @@
-import React from "react"
-import ReactDOM from 'react-dom'
+import * as React from "react"
+import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Route, Router } from 'react-router-dom'
-// import { createHistory } from 'history'
+import store from './store'
+import AppRoute from './route'
+import ReactChildrenMap from './views/App'
+
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory()
 
@@ -12,14 +14,18 @@ import './assets/less/index.less'
 let attachFastClick = require('fastclick')
 attachFastClick.attach(document.body)
 
+const target: HTMLElement = document.getElementById('app')
+
 class Root extends React.Component {
   render () {
     return (
       <div>
-          <div>jzb-react-cli</div>
+        <Provider store={store as any}>
+          <AppRoute history={history} />
+        </Provider>
       </div>
     )
   }
 }
 
-ReactDOM.render(<Root/>, document.getElementById('app'))
+ReactDOM.render(<Root/>, target)
