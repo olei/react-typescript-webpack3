@@ -3,5 +3,6 @@ import { Ihome } from '../../../interface'
 
 export default Record({
   name: 'react redux - jzb fe framework',
-  siteInfo: 'cli'
+  siteInfo: 'cli',
+  data: {}
 } as Ihome)

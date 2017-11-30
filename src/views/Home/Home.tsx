@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Action from '../../store/actions'
-import { IhomeAction } from '../../interface'
+import { IhomeAction, Ihome } from '../../interface'
 
 import './Home.less'
 
@@ -14,7 +14,7 @@ import './Home.less'
 
 export default class HomeView extends React.Component<IhomeAction, any> {
 
-  constructor (props: any) {
+  constructor (props: IhomeAction) {
     super(props)
     this.state = {
       value: '首页'
@@ -22,15 +22,18 @@ export default class HomeView extends React.Component<IhomeAction, any> {
   }
 
   componentWillMount () {
-    // this.props.homeAction('react-cli')
-    console.log(this.props.home.siteInfo)
+    this.props.homeAction('jzb-cli')
+    this.props.getData()
+    setTimeout(() => {
+      console.log(this.props.home)
+    }, 1000)
   }
 
   render () {
     return (
       <div>
         <Link to={'/about'} className="home-book-list">
-          {this.state.value} - {this.props.home.name}
+          {this.state.value} - {this.props.home.siteInfo}
         </Link>
       </div>
     )

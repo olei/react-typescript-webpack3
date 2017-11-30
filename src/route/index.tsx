@@ -31,9 +31,7 @@ export default class Router extends React.Component<RouterProps, any> {
   // }
   render() {
     return (
-      <div>
-        <BrowserRouter children={ routes } />
-      </div>
+      <BrowserRouter children={ routes } />
     )
   }
 

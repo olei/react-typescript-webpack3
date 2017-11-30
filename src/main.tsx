@@ -18,11 +18,9 @@ const target: HTMLElement = document.getElementById('app')
 class Root extends React.Component {
   render () {
     return (
-      <div>
-        <Provider store={store as any}>
-          <AppRoute history={history} />
-        </Provider>
-      </div>
+      <Provider store={store as any}>
+        <AppRoute history={history} />
+      </Provider>
     )
   }
 }

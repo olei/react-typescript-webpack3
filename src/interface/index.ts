@@ -1,12 +1,11 @@
 export interface Ihome {
-  name: string
-  siteInfo: string
+  name?: string
+  siteInfo?: string
+  data?: any
 }
 
 export interface IhomeAction {
   homeAction?: (n: string) => void
-  home?: {
-    name: string
-    siteInfo: string
-  }
+  getData?: () => void
+  home?: Ihome
 }

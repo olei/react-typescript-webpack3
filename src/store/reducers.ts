@@ -1,6 +1,5 @@
 import home from './modules/home/homeReducer'
-const rootReducer = {
-  /* your reducers */
+
+export default {
   home
 }
-export default rootReducer

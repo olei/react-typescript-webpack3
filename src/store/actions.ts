@@ -1,6 +1,5 @@
 import * as homeAction from './modules/home/homeAction'
-const rootAction = {
-  /* your reducers */
+
+export default {
   ...homeAction
 }
-export default rootAction

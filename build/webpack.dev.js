@@ -4,7 +4,6 @@ const path = require('path')
 const merge = require('webpack-merge')
 const webpackConfig = require('./webpack.config')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const proxyMiddleware = require('http-proxy-middleware')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
 // webpack hot reload 配置

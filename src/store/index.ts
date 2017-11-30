@@ -4,10 +4,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
+import promiseMiddleware from './util/promiseMiddleware'
 
 const history: any = createHistory() // TODO
 const middleware = routerMiddleware(history)
-const middlewares: any = [thunk, middleware] // TODO
+const middlewares: any = [thunk, middleware, promiseMiddleware({promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']})] // TODO
 
 const store = createStore(
   combineReducers({routing: routerReducer, ...rootReducer}),

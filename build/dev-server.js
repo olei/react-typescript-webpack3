@@ -7,6 +7,7 @@ const proxyMiddleware = require('http-proxy-middleware')
 const chalk = require('chalk')
 
 const config = require('./webpack.dev')
+const proxyTable = require('./proxyTable')
 
 const app = express()
 const compiler = webpack(config)
@@ -31,6 +32,15 @@ compiler.plugin('compilation', function (compilation) {
     hotMiddleware.publish({ action: 'reload' })
     cb()
   })
+})
+
+// proxy api requests
+Object.keys(proxyTable).forEach(function (context) {
+  var options = proxyTable[context]
+  if (typeof options === 'string') {
+    options = { target: options }
+  }
+  app.use(proxyMiddleware(context, options))
 })
 
 app.use(devMiddleware)
