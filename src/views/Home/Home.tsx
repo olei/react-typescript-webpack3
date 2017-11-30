@@ -1,7 +1,8 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Action from '../../store/action'
+import { Link } from 'react-router-dom'
+import Action from '../../store/actions'
 
 import './Home.less'
 
@@ -15,13 +16,21 @@ export default class HomeView extends React.Component<any, any> {
   constructor (props: any) {
     super(props)
     this.state = {
-      value: ''
+      value: '首页'
     }
   }
+
+  componentWillMount () {
+    const { name } = this.props
+    console.log(this.props.global)
+  }
+
   render () {
     return (
       <div>
-        首页
+        <Link to={'/about'} className="home-book-list">
+          {this.state.value}
+        </Link>
       </div>
     )
   }

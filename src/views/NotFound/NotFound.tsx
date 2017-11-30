@@ -6,7 +6,6 @@ export default class NotFoundView extends React.Component {
     return (
       <div>
         错误
-        <div className="icon-star"></div>
       </div>
     )
   }

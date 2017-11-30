@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import AppRoute from './route'
-import ReactChildrenMap from './views/App'
 
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory()

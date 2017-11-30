@@ -1,17 +1,34 @@
 import * as React from 'react'
-// import { Router } from 'react-router-dom'
-import { BrowserRouter } from 'react-router-dom'
+// BrowserRouter h5 histore 路由
+import { BrowserRouter, HashRouter, Switch, Route, Router as Rt } from 'react-router-dom'
 
-// import Root from './Root'
-import * as RoutesModule from './Root'
-let routes = RoutesModule.routes;
+export interface RouterProps {
+  history: any
+}
 
-export default class App extends React.Component<any, any> {
+import HomeView from '../views/Home/Home'
+import NotFound from '../views/NotFound/NotFound'
+
+const routes = <Switch>
+  <Route exact path="/" component={HomeView}></Route>
+  <Route path="/about" component={NotFound}></Route>
+</Switch>
+
+export default class Router extends React.Component<RouterProps, any> {
   constructor (props: any) {
     super(props)
-    console.log(this.props.history)
   }
 
+  // render () {
+  //   return (
+  //     <div>
+  //       <Router history={history}>
+  //         <Route exact path="/" component={HomeView}></Route>
+  //         <Route path="/about" component={NotFound}></Route>
+  //       </Router>
+  //     </div>
+  //   )
+  // }
   render() {
     return (
       <div>
@@ -19,4 +36,5 @@ export default class App extends React.Component<any, any> {
       </div>
     )
   }
+
 }
