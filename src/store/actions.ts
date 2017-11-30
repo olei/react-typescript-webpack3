@@ -1,6 +1,6 @@
-import global from './modules/global/globalAction'
+import * as homeAction from './modules/home/homeAction'
 const rootAction = {
   /* your reducers */
-  global
+  ...homeAction
 }
 export default rootAction

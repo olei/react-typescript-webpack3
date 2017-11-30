@@ -1,6 +1,6 @@
-import global from './modules/global/globalReducer'
+import home from './modules/home/homeReducer'
 const rootReducer = {
   /* your reducers */
-  global
+  home
 }
 export default rootReducer

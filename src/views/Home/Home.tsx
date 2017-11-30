@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Action from '../../store/actions'
+import { IhomeAction } from '../../interface'
 
 import './Home.less'
 
@@ -11,7 +12,7 @@ import './Home.less'
   (dispatch: any) => bindActionCreators(Action, dispatch)
 )
 
-export default class HomeView extends React.Component<any, any> {
+export default class HomeView extends React.Component<IhomeAction, any> {
 
   constructor (props: any) {
     super(props)
@@ -21,15 +22,15 @@ export default class HomeView extends React.Component<any, any> {
   }
 
   componentWillMount () {
-    const { name } = this.props
-    console.log(this.props.global)
+    // this.props.homeAction('react-cli')
+    console.log(this.props.home.siteInfo)
   }
 
   render () {
     return (
       <div>
         <Link to={'/about'} className="home-book-list">
-          {this.state.value}
+          {this.state.value} - {this.props.home.name}
         </Link>
       </div>
     )
