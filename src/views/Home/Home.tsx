@@ -22,11 +22,8 @@ export default class HomeView extends React.Component<IhomeAction, any> {
   }
 
   componentWillMount () {
-    this.props.homeAction('jzb-cli')
+    this.props.homeAction('jzb-react-cli')
     this.props.getData()
-    setTimeout(() => {
-      console.log(this.props.home)
-    }, 1000)
   }
 
   render () {

@@ -6,7 +6,7 @@ export const createReducer = (initialState: any, reducerMap: any) => {
   }
 }
 
-export const isPromise = (value: any): any => {
+export const isPromise = (value: any): boolean | void => {
   if (value !== null && typeof value === 'object') {
     return value.promise && typeof value.promise.then === 'function'
   }

@@ -6,9 +6,9 @@ import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import promiseMiddleware from './util/promiseMiddleware'
 
-const history: any = createHistory() // TODO
+const history: any = createHistory()
 const middleware = routerMiddleware(history)
-const middlewares: any = [thunk, middleware, promiseMiddleware({promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']})] // TODO
+const middlewares: any = [thunk, middleware, promiseMiddleware({promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']})]
 
 const store = createStore(
   combineReducers({routing: routerReducer, ...rootReducer}),
